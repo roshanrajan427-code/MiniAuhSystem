@@ -1,0 +1,12 @@
+go 1.26.8
+
+use (
+	./auth-service
+	./gateway-service
+	./protobufs
+	./service-utils
+)
+
+replace github.com/rosha/mini-auth-system/protobufs v0.0.0 => ./protobufs
+
+replace github.com/rosha/mini-auth-system/service-utils v0.0.0 => ./service-utils

@@ -1,0 +1,43 @@
+
+syntax = "proto3";
+
+package auth.v1;
+
+// Go import path and package name for generated code.
+option go_package = "github.com/rosha/mini-auth-system/protobufs/generated/auth/v1;authv1";
+
+// Authentication service contract.
+service AuthService {
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc VerifyOTP(VerifyOTPRequest) returns (VerifyOTPResponse);
+  rpc GetProfile(GetProfileRequest) returns (GetProfileResponse);
+}
+
+// Login messages.
+message LoginRequest {
+  string phone_number = 1;
+}
+
+message LoginResponse {
+  string message = 1;
+}
+
+// OTP verification messages.
+message VerifyOTPRequest {
+  string phone_number = 1;
+  string otp = 2;
+}
+
+message VerifyOTPResponse {
+  string access_token = 1;
+}
+
+// Profile messages.
+message GetProfileRequest {
+  string access_token = 1;
+}
+
+message GetProfileResponse {
+  string user_id = 1;
+  string phone_number = 2;
+}
